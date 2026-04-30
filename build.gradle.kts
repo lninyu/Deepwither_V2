@@ -11,6 +11,11 @@ repositories {
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:26.1.2.build.+")
+    
+    // Database & Cache
+    implementation("com.h2database:h2:2.2.224")
+    implementation("com.zaxxer:HikariCP:5.1.0")
+    implementation("com.github.ben-manes.caffeine:caffeine:3.1.8")
 }
 
 java {
@@ -20,6 +25,12 @@ java {
 tasks {
     build {
         dependsOn(shadowJar)
+    }
+
+    shadowJar {
+        relocate("com.zaxxer.hikari", "com.ruskserver.deepwither_V2.libs.hikari")
+        relocate("org.h2", "com.ruskserver.deepwither_V2.libs.h2")
+        relocate("com.github.benmanes.caffeine", "com.ruskserver.deepwither_V2.libs.caffeine")
     }
 
     runServer {
