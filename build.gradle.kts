@@ -28,6 +28,7 @@ tasks {
     }
 
     shadowJar {
+        archiveClassifier.set("") // -all を取り除き、通常のjarを上書き（FatJar化）する
         relocate("com.zaxxer.hikari", "com.ruskserver.deepwither_V2.libs.hikari")
         relocate("org.h2", "com.ruskserver.deepwither_V2.libs.h2")
         relocate("com.github.benmanes.caffeine", "com.ruskserver.deepwither_V2.libs.caffeine")
