@@ -1,0 +1,23 @@
+package com.ruskserver.deepwither_V2.core.stat;
+
+/**
+ * 武器や防具、プレイヤーなどのステータス種類を定義する列挙型。
+ */
+public enum StatType {
+    ATTACK_DAMAGE("攻撃力"),
+    DEFENSE("防御力"),
+    CRITICAL_CHANCE("クリティカル率"),
+    CRITICAL_DAMAGE("クリティカルダメージ"),
+    HEALTH("最大HP"),
+    SPEED("移動速度");
+
+    private final String displayName;
+
+    StatType(String displayName) {
+        this.displayName = displayName;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+}
