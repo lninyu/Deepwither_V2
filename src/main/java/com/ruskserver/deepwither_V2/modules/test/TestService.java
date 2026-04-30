@@ -1,5 +1,6 @@
 package com.ruskserver.deepwither_V2.modules.test;
 
+import com.ruskserver.deepwither_V2.core.di.annotations.Inject;
 import com.ruskserver.deepwither_V2.core.di.annotations.Service;
 import com.ruskserver.deepwither_V2.core.lifecycle.Startable;
 import com.ruskserver.deepwither_V2.core.lifecycle.Stoppable;
@@ -12,8 +13,8 @@ public class TestService implements Startable, Stoppable {
 
     private final Logger logger;
 
-    // Default constructor is picked up if no @Inject is found,
-    // but we can inject JavaPlugin here to get the logger.
+    // @Inject is required when we have constructor parameters for Dependency Injection
+    @Inject
     public TestService(JavaPlugin plugin) {
         this.logger = plugin.getLogger();
     }
